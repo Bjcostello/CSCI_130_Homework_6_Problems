@@ -13,7 +13,7 @@ int main() {
   double distance = 14.0;
   double flow = 20.0;
 
-  cout << powerGen(distance, flow) << endl;
+  cout << powerGen(distance, flow) << " Watts" << endl;
 
   return 0;
 }
