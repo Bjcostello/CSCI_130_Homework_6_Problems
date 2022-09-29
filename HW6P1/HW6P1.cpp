@@ -12,23 +12,23 @@ char func_computer_choice() {
 
   switch (A) {
   case 0: // Rock
-    cout << "Rock\n";
+    // cout << "Rock\n";
     B = 'R';
     break;
   case 1: // Paper
-    cout << "Paper\n";
+    // cout << "Paper\n";
     B = 'P';
     break;
   case 2: // Scissors
-    cout << "Scissors\n";
+    // cout << "Scissors\n";
     B = 'S';
     break;
   case 3: // Lizard
-    cout << "Lizard\n";
+    // cout << "Lizard\n";
     B = 'L';
     break;
   case 4: // Spock
-    cout << "Spock\n";
+    // cout << "Spock\n";
     B = 'K';
     break;
   }
@@ -40,16 +40,8 @@ int game_loop() {
   char player_choice, R, P, S, L, K; // declare variables
   char computer_choice;
   int x = 1;
-  // R = R;
-  // P = P;
-  // S = S;
-  // L = L;
-  // K = K;
 
   computer_choice = (func_computer_choice());
-
-  // cout << "\nPlease choose: Rock, Paper, Scissors, Lizard, or Spock." <<
-  // endl;
 
   cin >> player_choice; // player chooses rock, paper, scissors...
   if (player_choice == 'R') {
@@ -182,38 +174,49 @@ int game_loop() {
       cout << "It's a tie." << endl;
       return 2;
     }
-  } else
+  } else {
     cout << "this doesn't work. Please try again\n";
+    return -1;
+  }
 }
 
 int main() {
 
   int i, a, comp_win, player_win, ties;
+  comp_win = 0;
+  player_win = 0;
+  ties = 0;
 
   cout << "Are you ready to play 'Rock, Paper, Scissors, Lizard, Spock?'"
        << endl;
   cout << "Enter: \nR for 'Rock' \nP for 'Paper \nS for 'Scissors' \nL for "
           "'Lizard' \nK for 'Spock'\n\n";
 
-  for (i = 1; i <= 3; i++)
+  for (i = 1; i <= 3; i++) {
     a = game_loop();
-  switch (a) {
-  case 0:
-    player_win++;
-    break;
-  case 1:
-    comp_win++;
-    break;
-  case 2:
-    ties++;
-    break;
+    // cout << a << endl;
+    switch (a) {
+    case 0:
+      player_win++;
+      break;
+    case 1:
+      comp_win++;
+      break;
+    case 2:
+      ties++;
+      break;
+    }
   }
-  
+
+  cout << "\nTies = " << ties << endl
+       << "wins = " << player_win << endl
+       << "losses = " << comp_win << endl;
+
   if (player_win > comp_win)
-    cout << "You beat the computer!" << endl;
+    cout << "\nYou beat the computer!" << endl;
   else if (player_win < comp_win)
-    cout << "The computer beat you. . ." << endl;
+    cout << "\nThe computer beat you. . ." << endl;
   else if (player_win == comp_win)
-    cout << "You tied the computer.";
+    cout << "\nYou tied the computer.";
   return 0;
 }
